@@ -33,9 +33,9 @@ from __future__ import print_function
 
 import tensorflow as tf
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_boolean('enbl_fused_batchnorm', True,
+tf.compat.v1.flags.DEFINE_boolean('enbl_fused_batchnorm', True,
                             'Enable fused batch normalization or not. Enable this will bring a '
                             'significant performance boost, but may not be able to export a '
                             '*.tflite model when using TensorFlow\'s quantization-aware training '

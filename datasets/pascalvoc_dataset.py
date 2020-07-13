@@ -21,17 +21,17 @@ import tensorflow as tf
 
 from datasets.abstract_dataset import AbstractDataset
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_integer('image_size', 300, 'output image size')
-tf.app.flags.DEFINE_integer('image_size_eval', 300, 'output image size for evaluation')
-tf.app.flags.DEFINE_integer('nb_bboxs_max', 100, 'maximal # of bounding boxes per image')
-tf.app.flags.DEFINE_integer('nb_classes', 21, '# of classes')
-tf.app.flags.DEFINE_integer('nb_smpls_train', 22136, '# of samples for training')
-tf.app.flags.DEFINE_integer('nb_smpls_val', 500, '# of samples for validation')
-tf.app.flags.DEFINE_integer('nb_smpls_eval', 4952, '# of samples for evaluation')
-tf.app.flags.DEFINE_integer('batch_size', 32, 'batch size per GPU for training')
-tf.app.flags.DEFINE_integer('batch_size_eval', 1, 'batch size for evaluation')
+tf.compat.v1.DEFINE_integer('image_size', 300, 'output image size')
+tf.compat.v1.DEFINE_integer('image_size_eval', 300, 'output image size for evaluation')
+tf.compat.v1.DEFINE_integer('nb_bboxs_max', 100, 'maximal # of bounding boxes per image')
+tf.compat.v1.DEFINE_integer('nb_classes', 21, '# of classes')
+tf.compat.v1.DEFINE_integer('nb_smpls_train', 22136, '# of samples for training')
+tf.compat.v1.DEFINE_integer('nb_smpls_val', 500, '# of samples for validation')
+tf.compat.v1.DEFINE_integer('nb_smpls_eval', 4952, '# of samples for evaluation')
+tf.compat.v1.DEFINE_integer('batch_size', 32, 'batch size per GPU for training')
+tf.compat.v1.DEFINE_integer('batch_size_eval', 1, 'batch size for evaluation')
 
 # Pascal VOC specifications
 IMAGE_CHN = 3

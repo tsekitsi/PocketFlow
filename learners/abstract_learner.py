@@ -27,16 +27,16 @@ from utils.misc_utils import auto_barrier as auto_barrier_impl
 from utils.misc_utils import is_primary_worker as is_primary_worker_impl
 from utils.multi_gpu_wrapper import MultiGpuWrapper as mgw
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_string('model_http_url', None, 'HTTP/HTTPS url for remote model files')
-tf.app.flags.DEFINE_integer('summ_step', 100, 'summarizaton step size')
-tf.app.flags.DEFINE_integer('save_step', 10000, 'model saving step size')
-tf.app.flags.DEFINE_string('save_path', './models/model.ckpt', 'model\'s save path')
-tf.app.flags.DEFINE_string('save_path_eval', './models_eval/model.ckpt',
+tf.compat.v1.flags.DEFINE_string('model_http_url', None, 'HTTP/HTTPS url for remote model files')
+tf.compat.v1.flags.DEFINE_integer('summ_step', 100, 'summarizaton step size')
+tf.compat.v1.flags.DEFINE_integer('save_step', 10000, 'model saving step size')
+tf.compat.v1.flags.DEFINE_string('save_path', './models/model.ckpt', 'model\'s save path')
+tf.compat.v1.flags.DEFINE_string('save_path_eval', './models_eval/model.ckpt',
                            'model\'s save path for evaluation')
-tf.app.flags.DEFINE_boolean('enbl_dst', False, 'enable the distillation loss for training')
-tf.app.flags.DEFINE_boolean('enbl_warm_start', False, 'enable warm start for training')
+tf.compat.v1.flags.DEFINE_boolean('enbl_dst', False, 'enable the distillation loss for training')
+tf.compat.v1.flags.DEFINE_boolean('enbl_warm_start', False, 'enable warm start for training')
 
 class AbstractLearner(ABC):  # pylint: disable=too-many-instance-attributes
   """Abstract class for learners.

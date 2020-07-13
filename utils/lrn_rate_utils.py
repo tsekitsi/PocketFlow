@@ -18,7 +18,7 @@
 
 import tensorflow as tf
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
 def setup_lrn_rate_piecewise_constant(global_step, batch_size, idxs_epoch, decay_rates):
   """Setup the learning rate with piecewise constant strategy.

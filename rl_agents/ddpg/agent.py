@@ -26,16 +26,16 @@ from rl_agents.ddpg.noise import TimeDecayNoiseSpec
 from rl_agents.ddpg.replay_buffer import ReplayBuffer
 from rl_agents.ddpg.running_mean_std import RunningMeanStd
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_float('ddpg_tau', 0.01, 'DDPG: target networks\' update coefficient')
-tf.app.flags.DEFINE_float('ddpg_gamma', 0.9, 'DDPG: reward discounting factor')
-tf.app.flags.DEFINE_float('ddpg_lrn_rate', 1e-3, 'DDPG: actor & critic networks\' learning rate')
-tf.app.flags.DEFINE_float('ddpg_loss_w_dcy', 0.0, 'DDPG: weight decaying coefficient')
-tf.app.flags.DEFINE_integer('ddpg_record_step', 1, 'DDPG: recording step size')
-tf.app.flags.DEFINE_integer('ddpg_batch_size', 64, 'DDPG: batch size')
-tf.app.flags.DEFINE_boolean('ddpg_enbl_bsln_func', True, 'DDPG: enable baseline function')
-tf.app.flags.DEFINE_float('ddpg_bsln_decy_rate', 0.95, 'DDPG: baseline function\'s decaying rate')
+tf.compat.v1.flags.DEFINE_float('ddpg_tau', 0.01, 'DDPG: target networks\' update coefficient')
+tf.compat.v1.flags.DEFINE_float('ddpg_gamma', 0.9, 'DDPG: reward discounting factor')
+tf.compat.v1.flags.DEFINE_float('ddpg_lrn_rate', 1e-3, 'DDPG: actor & critic networks\' learning rate')
+tf.compat.v1.flags.DEFINE_float('ddpg_loss_w_dcy', 0.0, 'DDPG: weight decaying coefficient')
+tf.compat.v1.flags.DEFINE_integer('ddpg_record_step', 1, 'DDPG: recording step size')
+tf.compat.v1.flags.DEFINE_integer('ddpg_batch_size', 64, 'DDPG: batch size')
+tf.compat.v1.flags.DEFINE_boolean('ddpg_enbl_bsln_func', True, 'DDPG: enable baseline function')
+tf.compat.v1.flags.DEFINE_float('ddpg_bsln_decy_rate', 0.95, 'DDPG: baseline function\'s decaying rate')
 
 def normalize(smpl_mat, rms):
   """Normalize with the given running averages of mean value & standard deviation.

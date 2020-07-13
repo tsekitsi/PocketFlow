@@ -27,26 +27,26 @@ from learners.weight_sparsification.pr_optimizer import PROptimizer
 from learners.weight_sparsification.utils import get_maskable_vars
 from utils.multi_gpu_wrapper import MultiGpuWrapper as mgw
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_string('ws_save_path', './models_ws/model.ckpt', 'WS: model\'s save path')
-tf.app.flags.DEFINE_float('ws_prune_ratio', 0.75, 'WS: target pruning ratio')
-tf.app.flags.DEFINE_string('ws_prune_ratio_prtl', 'optimal',
+tf.compat.v1.flags.DEFINE_string('ws_save_path', './models_ws/model.ckpt', 'WS: model\'s save path')
+tf.compat.v1.flags.DEFINE_float('ws_prune_ratio', 0.75, 'WS: target pruning ratio')
+tf.compat.v1.flags.DEFINE_string('ws_prune_ratio_prtl', 'optimal',
                            'WS: pruning ratio protocol (\'uniform\' | \'heurist\' | \'optimal\')')
-tf.app.flags.DEFINE_integer('ws_nb_rlouts', 200, 'WS: # of roll-outs for the RL agent')
-tf.app.flags.DEFINE_integer('ws_nb_rlouts_min', 50,
+tf.compat.v1.flags.DEFINE_integer('ws_nb_rlouts', 200, 'WS: # of roll-outs for the RL agent')
+tf.compat.v1.flags.DEFINE_integer('ws_nb_rlouts_min', 50,
                             'WS: minimal # of roll-outs for the RL agent to start training')
-tf.app.flags.DEFINE_string('ws_reward_type', 'single-obj',
+tf.compat.v1.flags.DEFINE_string('ws_reward_type', 'single-obj',
                            'WS: reward type (\'single-obj\' OR \'multi-obj\')')
-tf.app.flags.DEFINE_float('ws_lrn_rate_rg', 3e-2, 'WS: learning rate for layerwise regression')
-tf.app.flags.DEFINE_integer('ws_nb_iters_rg', 20, 'WS: # of iterations for layerwise regression')
-tf.app.flags.DEFINE_float('ws_lrn_rate_ft', 3e-4, 'WS: learning rate for global fine-tuning')
-tf.app.flags.DEFINE_integer('ws_nb_iters_ft', 400, 'WS: # of iterations for global fine-tuning')
-tf.app.flags.DEFINE_integer('ws_nb_iters_feval', 25, 'WS: # of iterations for fast evaluation')
-tf.app.flags.DEFINE_float('ws_prune_ratio_exp', 3.0, 'WS: pruning ratio\'s exponent term')
-tf.app.flags.DEFINE_float('ws_iter_ratio_beg', 0.1, 'WS: iteration ratio (at starting time)')
-tf.app.flags.DEFINE_float('ws_iter_ratio_end', 0.5, 'WS: iteration ratio (at ending time)')
-tf.app.flags.DEFINE_float('ws_mask_update_step', 500, 'WS: step size for updating the pruning mask')
+tf.compat.v1.flags.DEFINE_float('ws_lrn_rate_rg', 3e-2, 'WS: learning rate for layerwise regression')
+tf.compat.v1.flags.DEFINE_integer('ws_nb_iters_rg', 20, 'WS: # of iterations for layerwise regression')
+tf.compat.v1.flags.DEFINE_float('ws_lrn_rate_ft', 3e-4, 'WS: learning rate for global fine-tuning')
+tf.compat.v1.flags.DEFINE_integer('ws_nb_iters_ft', 400, 'WS: # of iterations for global fine-tuning')
+tf.compat.v1.flags.DEFINE_integer('ws_nb_iters_feval', 25, 'WS: # of iterations for fast evaluation')
+tf.compat.v1.flags.DEFINE_float('ws_prune_ratio_exp', 3.0, 'WS: pruning ratio\'s exponent term')
+tf.compat.v1.flags.DEFINE_float('ws_iter_ratio_beg', 0.1, 'WS: iteration ratio (at starting time)')
+tf.compat.v1.flags.DEFINE_float('ws_iter_ratio_end', 0.5, 'WS: iteration ratio (at ending time)')
+tf.compat.v1.flags.DEFINE_float('ws_mask_update_step', 500, 'WS: step size for updating the pruning mask')
 
 def calc_prune_ratio(vars_list):
   """Calculate the overall pruning ratio for the given list of variables.

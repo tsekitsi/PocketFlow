@@ -25,7 +25,7 @@ from learners.abstract_learner import AbstractLearner
 from learners.distillation_helper import DistillationHelper
 from utils.multi_gpu_wrapper import MultiGpuWrapper as mgw
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
 class FullPrecLearner(AbstractLearner):  # pylint: disable=too-many-instance-attributes
   """Full-precision learner (no model compression applied)."""

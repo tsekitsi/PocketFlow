@@ -21,16 +21,16 @@ import tensorflow as tf
 
 from utils.multi_gpu_wrapper import MultiGpuWrapper as mgw
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_string('data_disk', 'local', 'data disk\'s location (\'local\' | \'hdfs\')')
-tf.app.flags.DEFINE_string('data_hdfs_host', None, 'HDFS host for data files')
-tf.app.flags.DEFINE_string('data_dir_local', None, 'data directory - local')
-tf.app.flags.DEFINE_string('data_dir_hdfs', None, 'data directory - HDFS')
-tf.app.flags.DEFINE_integer('cycle_length', 4, '# of datasets to interleave from in parallel')
-tf.app.flags.DEFINE_integer('nb_threads', 8, '# of threads for preprocessing the dataset')
-tf.app.flags.DEFINE_integer('buffer_size', 1024, '# of elements to be buffered when prefetching')
-tf.app.flags.DEFINE_integer('prefetch_size', 8, '# of mini-batches to be buffered when prefetching')
+tf.compat.v1.flags.DEFINE_string('data_disk', 'local', 'data disk\'s location (\'local\' | \'hdfs\')')
+tf.compat.v1.flags.DEFINE_string('data_hdfs_host', None, 'HDFS host for data files')
+tf.compat.v1.flags.DEFINE_string('data_dir_local', None, 'data directory - local')
+tf.compat.v1.flags.DEFINE_string('data_dir_hdfs', None, 'data directory - HDFS')
+tf.compat.v1.flags.DEFINE_integer('cycle_length', 4, '# of datasets to interleave from in parallel')
+tf.compat.v1.flags.DEFINE_integer('nb_threads', 8, '# of threads for preprocessing the dataset')
+tf.compat.v1.flags.DEFINE_integer('buffer_size', 1024, '# of elements to be buffered when prefetching')
+tf.compat.v1.flags.DEFINE_integer('prefetch_size', 8, '# of mini-batches to be buffered when prefetching')
 
 class AbstractDataset(ABC):
   '''Abstract class for datasets.'''

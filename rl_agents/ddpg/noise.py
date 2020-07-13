@@ -18,21 +18,21 @@
 
 import tensorflow as tf
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_string('ddpg_noise_type', 'param',
+tf.compat.v1.flags.DEFINE_string('ddpg_noise_type', 'param',
                            'DDPG: noise type (\'action\' OR \'param\')')
-tf.app.flags.DEFINE_string('ddpg_noise_prtl', 'tdecy',
+tf.compat.v1.flags.DEFINE_string('ddpg_noise_prtl', 'tdecy',
                            'DDPG: noise adjustment protocol (\'adapt\' OR \'tdecy\')')
-tf.app.flags.DEFINE_float('ddpg_noise_std_init', 1e+0,
+tf.compat.v1.flags.DEFINE_float('ddpg_noise_std_init', 1e+0,
                           'DDPG: parameter / action noise\'s initial stdev.')
 
 # for <AdaptiveNoiseSpec> only
-tf.app.flags.DEFINE_float('ddpg_noise_dst_finl', 1e-2, 'DDPG: action noise\'s final distance')
-tf.app.flags.DEFINE_float('ddpg_noise_adpt_rat', 1.03, 'DDPG: parameter noise\'s adaption rate')
+tf.compat.v1.flags.DEFINE_float('ddpg_noise_dst_finl', 1e-2, 'DDPG: action noise\'s final distance')
+tf.compat.v1.flags.DEFINE_float('ddpg_noise_adpt_rat', 1.03, 'DDPG: parameter noise\'s adaption rate')
 
 # for <TimeDecayNoiseSpec> only
-tf.app.flags.DEFINE_float('ddpg_noise_std_finl', 1e-5,
+tf.compat.v1.flags.DEFINE_float('ddpg_noise_std_finl', 1e-5,
                           'DDPG: parameter / action noise\'s final stdev.')
 
 class AdaptiveNoiseSpec(object):

@@ -20,7 +20,7 @@ import tensorflow as tf
 
 from utils.multi_gpu_wrapper import MultiGpuWrapper as mgw
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
 def auto_barrier(mpi_comm=None):
   """Automatically insert a barrier for multi-GPU training, or pass for single-GPU training.

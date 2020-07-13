@@ -21,14 +21,14 @@ import tensorflow as tf
 
 from datasets.abstract_dataset import AbstractDataset
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_integer('nb_classes', 10, '# of classes')
-tf.app.flags.DEFINE_integer('nb_smpls_train', 50000, '# of samples for training')
-tf.app.flags.DEFINE_integer('nb_smpls_val', 5000, '# of samples for validation')
-tf.app.flags.DEFINE_integer('nb_smpls_eval', 10000, '# of samples for evaluation')
-tf.app.flags.DEFINE_integer('batch_size', 128, 'batch size per GPU for training')
-tf.app.flags.DEFINE_integer('batch_size_eval', 100, 'batch size for evaluation')
+tf.compat.v1.flags.DEFINE_integer('nb_classes', 10, '# of classes')
+tf.compat.v1.flags.DEFINE_integer('nb_smpls_train', 50000, '# of samples for training')
+tf.compat.v1.flags.DEFINE_integer('nb_smpls_val', 5000, '# of samples for validation')
+tf.compat.v1.flags.DEFINE_integer('nb_smpls_eval', 10000, '# of samples for evaluation')
+tf.compat.v1.flags.DEFINE_integer('batch_size', 128, 'batch size per GPU for training')
+tf.compat.v1.flags.DEFINE_integer('batch_size_eval', 100, 'batch size for evaluation')
 
 # CIFAR-10 specifications
 LABEL_BYTES = 1

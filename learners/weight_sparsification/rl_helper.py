@@ -19,7 +19,7 @@
 import numpy as np
 import tensorflow as tf
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
 class RLHelper(object):
   """Reinforcement learning helper for the weight sparsification learner."""

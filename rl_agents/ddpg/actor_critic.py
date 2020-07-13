@@ -18,12 +18,12 @@
 
 import tensorflow as tf
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_integer('ddpg_actor_depth', 2, 'DDPG: actor network\'s depth')
-tf.app.flags.DEFINE_integer('ddpg_actor_width', 64, 'DDPG: actor network\'s width')
-tf.app.flags.DEFINE_integer('ddpg_critic_depth', 2, 'DDPG: critic network\'s depth')
-tf.app.flags.DEFINE_integer('ddpg_critic_width', 64, 'DDPG: critic network\'s width')
+tf.compat.v1.flags.DEFINE_integer('ddpg_actor_depth', 2, 'DDPG: actor network\'s depth')
+tf.compat.v1.flags.DEFINE_integer('ddpg_actor_width', 64, 'DDPG: actor network\'s width')
+tf.compat.v1.flags.DEFINE_integer('ddpg_critic_depth', 2, 'DDPG: critic network\'s depth')
+tf.compat.v1.flags.DEFINE_integer('ddpg_critic_width', 64, 'DDPG: critic network\'s width')
 
 ENBL_LAYER_NORM = True
 

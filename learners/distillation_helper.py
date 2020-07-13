@@ -23,11 +23,11 @@ import tensorflow as tf
 
 from utils.misc_utils import is_primary_worker
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_float('loss_w_dst', 4.0, 'distillation loss\'s multiplier')
-tf.app.flags.DEFINE_float('tempr_dst', 4.0, 'temperature in the distillation loss')
-tf.app.flags.DEFINE_string('save_path_dst', './models_dst/model.ckpt',
+tf.compat.v1.flags.DEFINE_float('loss_w_dst', 4.0, 'distillation loss\'s multiplier')
+tf.compat.v1.flags.DEFINE_float('tempr_dst', 4.0, 'temperature in the distillation loss')
+tf.compat.v1.flags.DEFINE_string('save_path_dst', './models_dst/model.ckpt',
                            'distillation model\'s save path')
 
 class DistillationHelper(object):

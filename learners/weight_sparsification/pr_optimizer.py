@@ -29,7 +29,7 @@ from rl_agents.ddpg.agent import Agent as DdpgAgent
 from utils.multi_gpu_wrapper import MultiGpuWrapper as mgw
 from utils.misc_utils import is_primary_worker
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
 def get_vars_by_scope(scope):
   """Get list of variables within certain name scope.

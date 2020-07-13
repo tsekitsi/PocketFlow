@@ -24,14 +24,14 @@ from utils.external import resnet_model as ResNet
 from utils.lrn_rate_utils import setup_lrn_rate_piecewise_constant
 from utils.multi_gpu_wrapper import MultiGpuWrapper as mgw
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_integer('resnet_size', 20, '# of layers in the ResNet model')
-tf.app.flags.DEFINE_float('nb_epochs_rat', 1.0, '# of training epochs\'s ratio')
-tf.app.flags.DEFINE_float('lrn_rate_init', 1e-1, 'initial learning rate')
-tf.app.flags.DEFINE_float('batch_size_norm', 128, 'normalization factor of batch size')
-tf.app.flags.DEFINE_float('momentum', 0.9, 'momentum coefficient')
-tf.app.flags.DEFINE_float('loss_w_dcy', 2e-4, 'weight decaying loss\'s coefficient')
+tf.compat.v1.flags.DEFINE_integer('resnet_size', 20, '# of layers in the ResNet model')
+tf.compat.v1.flags.DEFINE_float('nb_epochs_rat', 1.0, '# of training epochs\'s ratio')
+tf.compat.v1.flags.DEFINE_float('lrn_rate_init', 1e-1, 'initial learning rate')
+tf.compat.v1.flags.DEFINE_float('batch_size_norm', 128, 'normalization factor of batch size')
+tf.compat.v1.flags.DEFINE_float('momentum', 0.9, 'momentum coefficient')
+tf.compat.v1.flags.DEFINE_float('loss_w_dcy', 2e-4, 'weight decaying loss\'s coefficient')
 
 def forward_fn(inputs, is_train, data_format):
   """Forward pass function.

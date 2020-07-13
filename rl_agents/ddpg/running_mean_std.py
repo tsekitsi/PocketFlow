@@ -18,9 +18,9 @@
 
 import tensorflow as tf
 
-FLAGS = tf.app.flags.FLAGS
+FLAGS = tf.compat.v1.flags.FLAGS
 
-tf.app.flags.DEFINE_float('ddpg_rms_eps', 1e-4, 'DDPG: running standard deviation\'s epsilon')
+tf.compat.v1.flags.DEFINE_float('ddpg_rms_eps', 1e-4, 'DDPG: running standard deviation\'s epsilon')
 
 class RunningMeanStd(object):
   """Running averages of mean value & standard deviation."""
